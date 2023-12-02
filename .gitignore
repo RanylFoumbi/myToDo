@@ -1,0 +1,7 @@
+/frontend/.vscode
+/frontend/node_modules
+/backend/node_modules
+/frontend/package-lock.json
+/backend/package-lock.json
+.DS_Store
+/backend/.DS_Store

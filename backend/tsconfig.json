@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "lib": ["ES2019", "dom"],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "pretty": true,
+        "sourceMap": true,
+        "target": "ES2019",
+        "outDir": "./dist",
+        "baseUrl": "./api"
+    },
+    "include": [
+        "api/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+}
