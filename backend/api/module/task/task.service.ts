@@ -27,8 +27,10 @@ export class TaskService {
     })
     // for string filter
     ;['search'].forEach((elt) => {
-      if (filters?.[elt] && filters?.[elt].length > 0)
-        query['$or'] = [{ name: new RegExp(filters?.[elt], 'i') }, { description: new RegExp(filters?.[elt], 'i') }]
+      if (filters?.[elt] && filters?.[elt].length > 0) {
+        const regexString = filters[elt].replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+        query['$or'] = [{ name: new RegExp(regexString, 'i') }, { description: new RegExp(regexString, 'i') }]
+      }
     })
 
     try {

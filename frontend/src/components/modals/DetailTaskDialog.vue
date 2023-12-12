@@ -94,9 +94,6 @@ export default {
   },
   methods: {
     ...mapActions('dialog', ['closeDetailTaskDialog']),
-    deleteTask() {
-      this.$store.dispatch('dialog/closeDetailTaskDialog')
-    },
     formatDate(dateString) {
       if (!dateString) {
         return ''

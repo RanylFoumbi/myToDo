@@ -20,7 +20,7 @@ class App {
   }
 
   private configureMiddleware(): void {
-    this.app.use(morgan('dev'))
+    this.app.use(morgan(process.env.NODE_ENV))
     this.app.use(corsPolicy())
     this.app.use(express.json())
     this.app.use(express.urlencoded({ extended: true }))

@@ -21,11 +21,15 @@ class AuthService {
   }
 
   async register(user) {
-    return await axios.post(API_URL + '/register', {
-      email: user.email,
-      username: user.username,
-      password: user.password
-    })
+    try {
+      return await axios.post(API_URL + '/register', {
+        email: user.email,
+        username: user.username,
+        password: user.password
+      })
+    } catch (error) {
+      throw error.response.data
+    }
   }
 }
 

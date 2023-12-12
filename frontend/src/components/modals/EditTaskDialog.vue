@@ -33,7 +33,7 @@
               outlined
               color="indigo"
               :rules="[(v) => !!v || 'Sélectionnez un statut']"
-              :items="['À faire', 'En cours', 'Terminé', 'Retardé']"
+              :items="['TODO', 'DOING', 'DONE', 'BLOCKED']"
             ></v-select>
             <v-spacer></v-spacer>
             <v-select
@@ -43,7 +43,7 @@
               small
               color="indigo"
               :rules="[(v) => !!v || 'Sélectionnez un niveau de priorité']"
-              :items="['Faible', 'Moyen', 'Élevé']"
+              :items="['LOW', 'MEDIUM', 'HIGH']"
             ></v-select>
           </v-row>
           <v-row class="d-flex justify-space-between mx-1">
@@ -72,6 +72,7 @@
           <v-btn
             variant="tonal"
             color="#433e90"
+            :loading="loading"
             class="white--text"
             :disabled="isFormInvalid"
             @click="updateTask"
@@ -102,6 +103,7 @@ export default {
         startAt: null,
         description: ''
       },
+      loading: false,
       originalTask: null
     }
   },
