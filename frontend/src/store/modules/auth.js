@@ -95,10 +95,10 @@ export const auth = {
           return Promise.resolve(response.data)
         },
         (error) => {
-          commit('setLoadingRegister', false)
           commit('registerFailure')
-          const errorRes = error.response
-          if (errorRes.status === 409) {
+          commit('setLoadingRegister', false)
+          const errorRes = error.message
+          if (errorRes === "EMAIL_EXIST") {
             $toast.warning(`L'e-mail ${user.email} existe déjà!`)
           } else {
             $toast.error('Erreur interne du serveur!')
